@@ -261,7 +261,12 @@
 					}
 					return item;
 				} );
-
+				data[0]['telefone'] = document.querySelector('.jet-apb-details__item-telefone input').value;
+				data[0]['oncologico'] = document.querySelector('.jet-apb-details__item-oncologico input').value;
+				data[0]['user_name'] = document.querySelector('.jet-apb-details__item-user_name input').value;
+				data[0]['user_email'] = "paciente_email@cliente.com";
+				data[0]['convenio'] = document.querySelector('.jet-apb-details__item-convenio input').value;
+				data[0]['status'] = 'processing';
 				wp.apiFetch({
 					method: 'POST',
 					path: api.add_appointment,
@@ -964,7 +969,7 @@
 				};
 			},
 			callPopup: function ( state = false, item = false ) {
-
+				
 				eventHub.$emit( 'call-popup', {
 					state: state,
 					item: item,
@@ -1379,7 +1384,7 @@
 				store.commit('setValue', {
 					key: 'action',
 					value: Object.assign( {}, this.action, { name: this.popUpState, content: content } )
-				});
+				});				
 			},
 			cancelPopup: function () {
 				this.isShow = false ;
@@ -1432,6 +1437,7 @@
 				this.cancelPopup();
 			},
 			changeValue: function ( value, key, fieldType = '' ) {
+				
 				switch (fieldType) {
 					case 'date-picker':
 						let timestampValue = this.dateToTimestamp( value );
@@ -1754,7 +1760,7 @@
 				} );
 			},
 			checkEmptyFields: function () {
-				let requiredFields = [ 'status', 'user_email' ],
+				let requiredFields = [],
 					emptyFields    = [];
 
 				if( this.provider.length ){
@@ -1915,6 +1921,12 @@
 					item: item,
 					state: state,
 				})
+				setTimeout(() => {
+					var campo = document.querySelector(".jet-apb-details__item-user_name input");
+					campo.addEventListener('change',function(){
+						buscarUsuarioPorNome(this.value);
+					})
+				}, 200);
 			},
 		}
 	})

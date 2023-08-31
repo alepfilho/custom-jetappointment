@@ -13,13 +13,9 @@ class Statuses {
 	 */
 	public function __construct() {
 		$this->statuses = array(
-			'pending'    => _x( 'Pending payment', 'Order status', 'jet-appointments-booking' ),
-			'processing' => _x( 'Processing', 'Order status', 'jet-appointments-booking' ),
-			'on-hold'    => _x( 'On hold', 'Order status', 'jet-appointments-booking' ),
-			'completed'  => _x( 'Completed', 'Order status', 'jet-appointments-booking' ),
-			'cancelled'  => _x( 'Cancelled', 'Order status', 'jet-appointments-booking' ),
-			'refunded'   => _x( 'Refunded', 'Order status', 'jet-appointments-booking' ),
-			'failed'     => _x( 'Failed', 'Order status', 'jet-appointments-booking' ),
+			'processing' => _x( 'Agendado', 'Order status', 'jet-appointments-booking' ),
+			'completed'  => _x( 'Confirmado', 'Order status', 'jet-appointments-booking' ),
+			'cancelled'  => _x( 'Cancelado', 'Order status', 'jet-appointments-booking' ),
 		);
 	}
 
